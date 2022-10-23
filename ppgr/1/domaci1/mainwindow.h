@@ -6,6 +6,7 @@
 #include <iostream>
 #include <QtGui>
 #include <QtCore>
+#include <QPainter>
 
 namespace Ui {
 class MainWindow;
@@ -22,7 +23,8 @@ public:
 private slots:
     void on_pushButton_clicked();
     void mouse_current_pos();
-    void draw_dot();
+
+    void on_Undo_clicked();
 
 private:
     Ui::MainWindow *ui;

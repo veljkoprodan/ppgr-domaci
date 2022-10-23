@@ -10,7 +10,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->imageLabel, SIGNAL(Mouse_Pos()), this, SLOT(mouse_current_pos()));
-    connect(ui->imageLabel, SIGNAL(Mouse_Pos()), this, SLOT(draw_dot()));
 }
 
 MainWindow::~MainWindow()
@@ -25,7 +24,7 @@ void MainWindow::on_pushButton_clicked()
         QImage image;
         bool valid = image.load(filename);
         if(valid){
-            image = image.scaled(ui->imageLabel->width(), ui->imageLabel->height(), Qt::KeepAspectRatio);
+            image = image.scaled(ui->imageLabel->width(),ui->imageLabel->height() , Qt::KeepAspectRatio);
             ui->imageLabel->setFixedSize(image.width(), image.height());
             ui->imageLabel->setPixmap(QPixmap::fromImage(image));
         }
@@ -80,8 +79,33 @@ void MainWindow::mouse_current_pos()
     }
 }
 
-void MainWindow::draw_dot()
+void MainWindow::on_Undo_clicked()
 {
+    switch(ui->imageLabel->count){
+        case 1:
+            ui->t1->setText(QString("t1 = "));
+        break;
+        case 2:
+            ui->t2->setText(QString("t2 = "));
+        break;
+        case 3:
+            ui->t3->setText(QString("t3 = "));
+        break;
+        case 4:
+            ui->t5->setText(QString("t5 = "));
+        break;
+        case 5:
+            ui->t6->setText(QString("t6 = "));
+        break;
+        case 6:
+            ui->t7->setText(QString("t7 = "));
+        break;
+        case 7:
+            ui->t8->setText(QString("t8 = "));
+            ui->t4->setText(QString("t4 = ?"));
+        break;
 
-
+    }
+    if(ui->imageLabel->count > 0)
+        ui->imageLabel->count--;
 }

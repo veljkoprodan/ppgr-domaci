@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.5
+** Created by: Qt User Interface Compiler version 5.12.8
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,10 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -44,6 +41,7 @@ public:
     QLabel *t6;
     QLabel *t7;
     QLabel *t8;
+    QPushButton *Undo;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -51,20 +49,20 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(961, 504);
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+        MainWindow->resize(941, 505);
         centralWidget = new QWidget(MainWindow);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         verticalLayoutWidget = new QWidget(centralWidget);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(0, 0, 631, 441));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(10, 0, 10, 0);
         imageLabel = new qlabel_pixel_pos(verticalLayoutWidget);
-        imageLabel->setObjectName(QStringLiteral("imageLabel"));
+        imageLabel->setObjectName(QString::fromUtf8("imageLabel"));
         imageLabel->setMouseTracking(true);
         imageLabel->setFrameShape(QFrame::Box);
         imageLabel->setAlignment(Qt::AlignCenter);
@@ -72,68 +70,73 @@ public:
         verticalLayout->addWidget(imageLabel);
 
         pushButton = new QPushButton(verticalLayoutWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         verticalLayout->addWidget(pushButton);
 
         verticalLayoutWidget_2 = new QWidget(centralWidget);
-        verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(630, 0, 371, 441));
+        verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
+        verticalLayoutWidget_2->setGeometry(QRect(630, 0, 281, 441));
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         t1 = new QLabel(verticalLayoutWidget_2);
-        t1->setObjectName(QStringLiteral("t1"));
+        t1->setObjectName(QString::fromUtf8("t1"));
 
         verticalLayout_2->addWidget(t1);
 
         t2 = new QLabel(verticalLayoutWidget_2);
-        t2->setObjectName(QStringLiteral("t2"));
+        t2->setObjectName(QString::fromUtf8("t2"));
 
         verticalLayout_2->addWidget(t2);
 
         t3 = new QLabel(verticalLayoutWidget_2);
-        t3->setObjectName(QStringLiteral("t3"));
+        t3->setObjectName(QString::fromUtf8("t3"));
 
         verticalLayout_2->addWidget(t3);
 
         t4 = new QLabel(verticalLayoutWidget_2);
-        t4->setObjectName(QStringLiteral("t4"));
+        t4->setObjectName(QString::fromUtf8("t4"));
 
         verticalLayout_2->addWidget(t4);
 
         t5 = new QLabel(verticalLayoutWidget_2);
-        t5->setObjectName(QStringLiteral("t5"));
+        t5->setObjectName(QString::fromUtf8("t5"));
 
         verticalLayout_2->addWidget(t5);
 
         t6 = new QLabel(verticalLayoutWidget_2);
-        t6->setObjectName(QStringLiteral("t6"));
+        t6->setObjectName(QString::fromUtf8("t6"));
 
         verticalLayout_2->addWidget(t6);
 
         t7 = new QLabel(verticalLayoutWidget_2);
-        t7->setObjectName(QStringLiteral("t7"));
+        t7->setObjectName(QString::fromUtf8("t7"));
 
         verticalLayout_2->addWidget(t7);
 
         t8 = new QLabel(verticalLayoutWidget_2);
-        t8->setObjectName(QStringLiteral("t8"));
+        t8->setObjectName(QString::fromUtf8("t8"));
 
         verticalLayout_2->addWidget(t8);
 
+        Undo = new QPushButton(verticalLayoutWidget_2);
+        Undo->setObjectName(QString::fromUtf8("Undo"));
+
+        verticalLayout_2->addWidget(Undo);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 961, 22));
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 941, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
@@ -143,17 +146,18 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         imageLabel->setText(QString());
-        pushButton->setText(QApplication::translate("MainWindow", "Load Image", Q_NULLPTR));
-        t1->setText(QApplication::translate("MainWindow", "t1 = ", Q_NULLPTR));
-        t2->setText(QApplication::translate("MainWindow", "t2 = ", Q_NULLPTR));
-        t3->setText(QApplication::translate("MainWindow", "t3 = ", Q_NULLPTR));
-        t4->setText(QApplication::translate("MainWindow", "t4 = ?", Q_NULLPTR));
-        t5->setText(QApplication::translate("MainWindow", "t5 = ", Q_NULLPTR));
-        t6->setText(QApplication::translate("MainWindow", "t6 = ", Q_NULLPTR));
-        t7->setText(QApplication::translate("MainWindow", "t7 = ", Q_NULLPTR));
-        t8->setText(QApplication::translate("MainWindow", "t8 = ", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("MainWindow", "Load Image", nullptr));
+        t1->setText(QApplication::translate("MainWindow", "t1 = ", nullptr));
+        t2->setText(QApplication::translate("MainWindow", "t2 = ", nullptr));
+        t3->setText(QApplication::translate("MainWindow", "t3 = ", nullptr));
+        t4->setText(QApplication::translate("MainWindow", "t4 = ?", nullptr));
+        t5->setText(QApplication::translate("MainWindow", "t5 = ", nullptr));
+        t6->setText(QApplication::translate("MainWindow", "t6 = ", nullptr));
+        t7->setText(QApplication::translate("MainWindow", "t7 = ", nullptr));
+        t8->setText(QApplication::translate("MainWindow", "t8 = ", nullptr));
+        Undo->setText(QApplication::translate("MainWindow", "Undo", nullptr));
     } // retranslateUi
 
 };
