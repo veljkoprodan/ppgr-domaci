@@ -5,6 +5,7 @@
 #include <QMouseEvent>
 #include <QDebug>
 #include <QEvent>
+#include <QtGui>
 
 #include "geometrija.h"
 
@@ -17,6 +18,7 @@ public:
     void mousePressEvent(QMouseEvent *ev);
     int x,y;
     int count = 0;
+    bool image_loaded = false;
     point t1, t2, t3, t4, t5, t6, t7, t8;
 
 signals:

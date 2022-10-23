@@ -8,7 +8,8 @@ qlabel_pixel_pos::qlabel_pixel_pos(QWidget *parent) :
 
 void qlabel_pixel_pos::mousePressEvent(QMouseEvent *ev)
 {
-    if(this->count < 7){
+    if(this->count < 7 && this->image_loaded){
+
         this->count++;
         this->x = ev->x();
         this->y = ev->y();

@@ -27,6 +27,7 @@ void MainWindow::on_pushButton_clicked()
             image = image.scaled(ui->imageLabel->width(),ui->imageLabel->height() , Qt::KeepAspectRatio);
             ui->imageLabel->setFixedSize(image.width(), image.height());
             ui->imageLabel->setPixmap(QPixmap::fromImage(image));
+            ui->imageLabel->image_loaded = true;
         }
         else{
             std::cerr << "Error\n";
@@ -40,30 +41,37 @@ void MainWindow::mouse_current_pos()
         case 1:
             ui->t1->setText(QString("t1 = (%1, %2, 1)").arg(ui->imageLabel->x).arg(ui->imageLabel->y));
             ui->imageLabel->t1 = std::make_tuple(ui->imageLabel->x, ui->imageLabel->y, 1);
+            draw_dot(ui->imageLabel->t1);
         break;
         case 2:
             ui->t2->setText(QString("t2 = (%1, %2, 1)").arg(ui->imageLabel->x).arg(ui->imageLabel->y));
             ui->imageLabel->t2 = std::make_tuple(ui->imageLabel->x, ui->imageLabel->y, 1);
+            draw_dot(ui->imageLabel->t2);
         break;
         case 3:
             ui->t3->setText(QString("t3 = (%1, %2, 1)").arg(ui->imageLabel->x).arg(ui->imageLabel->y));
             ui->imageLabel->t3 = std::make_tuple(ui->imageLabel->x, ui->imageLabel->y, 1);
+            draw_dot(ui->imageLabel->t3);
         break;
         case 4:
             ui->t5->setText(QString("t5 = (%1, %2, 1)").arg(ui->imageLabel->x).arg(ui->imageLabel->y));
             ui->imageLabel->t5 = std::make_tuple(ui->imageLabel->x, ui->imageLabel->y, 1);
+            draw_dot(ui->imageLabel->t5);
         break;
         case 5:
             ui->t6->setText(QString("t6 = (%1, %2, 1)").arg(ui->imageLabel->x).arg(ui->imageLabel->y));
             ui->imageLabel->t6 = std::make_tuple(ui->imageLabel->x, ui->imageLabel->y, 1);
+            draw_dot(ui->imageLabel->t6);
         break;
         case 6:
             ui->t7->setText(QString("t7 = (%1, %2, 1)").arg(ui->imageLabel->x).arg(ui->imageLabel->y));
             ui->imageLabel->t7 = std::make_tuple(ui->imageLabel->x, ui->imageLabel->y, 1);
+            draw_dot(ui->imageLabel->t7);
         break;
         case 7:
             ui->t8->setText(QString("t8 = (%1, %2, 1)").arg(ui->imageLabel->x).arg(ui->imageLabel->y));
             ui->imageLabel->t8 = std::make_tuple(ui->imageLabel->x, ui->imageLabel->y, 1);
+            draw_dot(ui->imageLabel->t8);
 
             ui->imageLabel->t4 = invisible(ui->imageLabel->t1,
                                            ui->imageLabel->t2,
@@ -73,7 +81,9 @@ void MainWindow::mouse_current_pos()
                                            ui->imageLabel->t7,
                                            ui->imageLabel->t8);
 
+            ui->imageLabel->count++;
             ui->t4->setText(QString("t4 = ") + point_to_str(ui->imageLabel->t4));
+            draw_dot(ui->imageLabel->t4);
 
         break;
     }
@@ -108,4 +118,25 @@ void MainWindow::on_Undo_clicked()
     }
     if(ui->imageLabel->count > 0)
         ui->imageLabel->count--;
+}
+
+void MainWindow::draw_dot(point t){
+    if(ui->imageLabel->image_loaded){
+        QImage tmp(ui->imageLabel->pixmap()->toImage());
+        QPainter painter(&tmp);
+
+        QPen paintpen(Qt::black);
+        if(ui->imageLabel->count == 8){
+            paintpen.setColor(Qt::red);
+            ui->imageLabel->count--;
+        }
+
+        paintpen.setWidth(7);
+        QPoint p;
+        p.setX(std::get<0>(t));
+        p.setY(std::get<1>(t));
+        painter.setPen(paintpen);
+        painter.drawPoint(p);
+        ui->imageLabel->setPixmap(QPixmap::fromImage(tmp));
+    }
 }

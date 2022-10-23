@@ -8,6 +8,8 @@
 #include <QtCore>
 #include <QPainter>
 
+#include "geometrija.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -18,6 +20,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void draw_dot(point t);
     ~MainWindow();
 
 private slots:
