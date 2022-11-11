@@ -3,6 +3,7 @@ import cv2
 import math
 import dlt_norm
 from tkinter import filedialog
+import os
 
 global count
 count = 0
@@ -54,7 +55,8 @@ if count == 4:
         matrix = dlt_norm.alg(ulazne, slike)
         output = cv2.warpPerspective(img, matrix, (ww,hh), cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=(0,0,0))
 
-        cv2.imwrite("output.jpg", output)
+        outputPath = "./output/" + "output_" + os.path.basename(path)
+        cv2.imwrite(outputPath, output)
 
         cv2.imshow("result", output)
         cv2.waitKey(0)

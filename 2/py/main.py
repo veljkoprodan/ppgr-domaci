@@ -3,6 +3,7 @@ import naivni
 import dlt
 import dlt_norm
 import promena_koord
+import numpy
 
 def draw(ulazne, slike):
     xs = [t[0] for t in ulazne]
@@ -20,17 +21,45 @@ def draw(ulazne, slike):
     pyplot.show()
 
 # Test primer
-ulazne = [[-3, -1, 1],
-          [3, -1, 1],
-          [1, 1, 1],
-          [-1, 1, 1]]
+# ulazne = [[-3, -1, 1],
+#           [3, -1, 1],
+#           [1, 1, 1],
+#           [-1, 1, 1]]
 
-slike = [[-2, -1, 1],
-         [2, -1, 1],
-         [2, 1, 1],
-         [-2, 1, 1]]
+# slike = [[-2, -1, 1],
+#          [2, -1, 1],
+#          [2, 1, 1],
+#          [-2, 1, 1]]
 
-# draw(ulazne, slike)
+ulazne = [[0,0,0],
+          [0,0,0],
+          [0,0,0],
+          [0,0,0]
+         ]
+
+slike = [[0,0,0],
+         [0,0,0],
+         [0,0,0],
+         [0,0,0]
+        ]
+
+for i in range (4):
+    for j in range (3):
+        ulazne[i][j] = float(input())
+
+for i in range (4):
+    for j in range (3):
+        slike[i][j] = float(input())
+
+
+
+draw(ulazne, slike)
+
+print('\n----------------------------------------------')
+print('Ulazne koordinate:')
+print(ulazne)
+print('\nSlike:')
+print(slike)
 
 #Naivni
 print('\n----------------------------------------------')
@@ -68,23 +97,40 @@ print('DLT:')
 print(M_dlt.round(5))
 print('\nDLT sa normalizacijom:')
 print(M_dlt_norm.round(5))
+
 print('\n----------------------------------------------')
 
 #DLT sa vise korespodencija
 print('DLT sa vise korespodencija:\n')
-ulazne = [[-3, -1, 1],
-          [3, -1, 1],
-          [1, 1, 1],
-          [-1, 1, 1],
-          [1, 2, 3],
-          [-8, -2, 1]]
+# ulazne = [[-3, -1, 1],
+#           [3, -1, 1],
+#           [1, 1, 1],
+#           [-1, 1, 1],
+#           [1, 2, 3],
+#           [-8, -2, 1]]
 
-slike = [[-2, -1, 1],
-         [2, -1, 1],
-         [2, 1, 1],
-         [-2, 1, 1],
-         [2, 1, 4],
-         [-16, -5, 4]]
+# slike = [[-2, -1, 1],
+#          [2, -1, 1],
+#          [2, 1, 1],
+#          [-2, 1, 1],
+#          [2, 1, 4],
+#          [-16, -5, 4]]
+
+ulazne.append([1, 2, 3])
+ulazne.append([-8, -2, 1])
+slike.append([0, 0, 0])
+slike.append([0, 0, 0])
+
+novaSlika1 = ulazne[4] @ M_dlt_norm
+novaSlika2 = ulazne[5] @ M_dlt_norm
+
+slike[4][0] = novaSlika1[0].round(2)
+slike[4][1] = novaSlika1[1].round(2)
+slike[4][2] = novaSlika1[2].round(2)
+
+slike[5][0] = novaSlika2[0].round(2)
+slike[5][1] = novaSlika2[1].round(2)
+slike[5][2] = novaSlika2[2].round(2)
 
 M_dlt2 = dlt.alg(ulazne, slike)
 print(M_dlt2.round(5))
